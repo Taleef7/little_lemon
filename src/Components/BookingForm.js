@@ -1,47 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const BookingForm = ({ availableTimes, updateTimes }) => {
+// Define the BookingForm component
+const BookingForm = ({ availableTimes, updateAvailableTimes, submitReservation }) => {
+  // Define state variables for form inputs
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState('Birthday');
 
-  // Handle date change and update available times
-  const handleDateChange = (e) => {
-    const selectedDate = e.target.value;
-    setDate(selectedDate);
-    updateTimes(selectedDate);
-  };
+  // Fetch available times when the date changes
+  useEffect(() => {
+    if (date) {
+      updateAvailableTimes(date);
+    }
+  }, [date, updateAvailableTimes]);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('Reservation details:', { date, time, guests, occasion });
-    // Here you would typically send data to an API
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = {
+      date,
+      time,
+      guests,
+      occasion,
+    };
+    submitReservation(formData);
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'grid', maxWidth: '200px', gap: '20px' }}>
+    <form style={{ display: 'grid', maxWidth: '200px', gap: '20px' }} onSubmit={handleSubmit}>
       <label htmlFor="res-date">Choose date</label>
       <input
         type="date"
         id="res-date"
         value={date}
-        onChange={handleDateChange}
+        onChange={(e) => setDate(e.target.value)}
       />
-      
       <label htmlFor="res-time">Choose time</label>
       <select
         id="res-time"
         value={time}
         onChange={(e) => setTime(e.target.value)}
       >
-        {availableTimes.map((availableTime, index) => (
-          <option key={index} value={availableTime}>
-            {availableTime}
-          </option>
+        {availableTimes.map((time, index) => (
+          <option key={index} value={time}>{time}</option>
         ))}
       </select>
-      
       <label htmlFor="guests">Number of guests</label>
       <input
         type="number"
@@ -50,9 +54,8 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
         max="10"
         id="guests"
         value={guests}
-        onChange={(e) => setGuests(parseInt(e.target.value, 10))}
+        onChange={(e) => setGuests(e.target.value)}
       />
-      
       <label htmlFor="occasion">Occasion</label>
       <select
         id="occasion"
@@ -62,8 +65,7 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
         <option value="Birthday">Birthday</option>
         <option value="Anniversary">Anniversary</option>
       </select>
-      
-      <input type="submit" value="Make Your Reservation" />
+      <input type="submit" value="Make Your reservation" />
     </form>
   );
 };

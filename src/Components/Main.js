@@ -1,35 +1,60 @@
-import React, { useReducer, useState } from 'react';
-import BookingPage from './BookingPage';
+import React, { useReducer, useCallback } from 'react';
+import BookingForm from './BookingForm';
 
-// Initial state for available times
-const initializeTimes = () => [
-  '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
-];
+// Define initial state for available times
+const initialTimes = [];
 
-// Reducer function to update available times
+// Reducer function to manage times state
 const timesReducer = (state, action) => {
   switch (action.type) {
-    case 'UPDATE_TIMES':
-      // For now, we'll return the same times regardless of the date
-      return initializeTimes();
+    case 'SET_TIMES':
+      return action.payload;
     default:
       return state;
   }
 };
 
+// Main component
 const Main = () => {
-  const [availableTimes, dispatch] = useReducer(timesReducer, [], initializeTimes);
+  // Use reducer to manage available times
+  const [availableTimes, dispatch] = useReducer(timesReducer, initialTimes);
 
-  // Function to update available times based on selected date
-  const updateTimes = (date) => {
-    dispatch({ type: 'UPDATE_TIMES' });
+  // Function to initialize times
+  const initializeTimes = useCallback(async () => {
+    const times = await fetchAPI(new Date().toISOString().split('T')[0]);
+    dispatch({ type: 'SET_TIMES', payload: times });
+  }, []);
+
+  // Function to update times based on selected date
+  const updateAvailableTimes = useCallback(async (date) => {
+    const times = await fetchAPI(date);
+    dispatch({ type: 'SET_TIMES', payload: times });
+  }, []);
+
+  // Function to submit reservation
+  const submitReservation = async (formData) => {
+    const success = await submitAPI(formData);
+    if (success) {
+      alert('Reservation successful!');
+    } else {
+      alert('Reservation failed. Please try again.');
+    }
   };
 
+  // Initialize times on component mount
+  useEffect(() => {
+    initializeTimes();
+  }, [initializeTimes]);
+
   return (
-    <BookingPage
-      availableTimes={availableTimes}
-      updateTimes={updateTimes}
-    />
+    <div>
+      {/* Other content */}
+      <BookingForm
+        availableTimes={availableTimes}
+        updateAvailableTimes={updateAvailableTimes}
+        submitReservation={submitReservation}
+      />
+    </div>
   );
 };
 
