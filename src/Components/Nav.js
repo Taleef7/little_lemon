@@ -1,4 +1,4 @@
-// src/Nav.js
+// src/Components/Nav.js
 import React from 'react';
 
 function Nav() {

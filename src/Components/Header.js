@@ -1,4 +1,4 @@
-// src/Header.js
+// src/Components/Header.js
 import React from 'react';
 import logo from '../icons_assets/Logo.svg'; // Make sure you have the logo image in the src folder
 

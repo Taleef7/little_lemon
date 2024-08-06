@@ -1,4 +1,4 @@
-// src/Main.js
+// src/Components/Main.js
 import React from 'react';
 
 function Main() {
