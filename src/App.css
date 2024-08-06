@@ -58,3 +58,84 @@ nav ul li a:hover {
     grid-column-start: 2;
   }
 }
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+/* Specific sizes for different headings */
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.75rem;
+}
+h4 {
+  font-size: 1.5rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+h6 {
+  font-size: 1rem;
+}
+
+/* Paragraphs */
+p {
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* Spans */
+span {
+  font-family: 'Arial', sans-serif;
+  color: #777;
+}
+
+
+/* Navigation */
+nav {
+  background-color: #f8f8f8;
+  border-bottom: 2px solid #ddd;
+  padding: 10px 0;
+}
+
+/* Navigation list */
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Navigation list items */
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #ddd;
+}
+
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
