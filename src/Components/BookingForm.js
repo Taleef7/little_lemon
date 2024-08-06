@@ -80,7 +80,9 @@ const BookingForm = ({ availableTimes, updateAvailableTimes, submitReservation }
         <option value="Birthday">Birthday</option>
         <option value="Anniversary">Anniversary</option>
       </select>
-      <input type="submit" value="Make Your reservation" disabled={!isFormValid} />
+      <button type="submit" disabled={!isFormValid} aria-label="Submit reservation">
+        Make Your reservation
+      </button>
     </form>
   );
 };
