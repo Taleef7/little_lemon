@@ -1,19 +1,20 @@
 // src/App.js
 import React from 'react';
-import Header from './Components/Header';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Nav from './Components/Nav';
-import Main from './Components/Main';
-import Footer from './Components/Footer';
+import HomePage from './Components/HomePage';
+import BookingPage from './Components/BookingPage';
 import './App.css';
 
 function App() {
   return (
-    <div className="container">
-      <Header />
+    <Router>
       <Nav />
-      <Main />
-      <Footer />
-    </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/booking" element={<BookingPage />} />
+      </Routes>
+    </Router>
   );
 }
 
