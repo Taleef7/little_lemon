@@ -1,14 +1,13 @@
-// src/Components/BookingPage.js
 import React from 'react';
+import BookingForm from './BookingForm';
 
-function BookingPage() {
+const BookingPage = () => {
   return (
-    <main>
-      <h1>Reserve a Table</h1>
-      <p>Book your table at Little Lemon and enjoy a great meal!</p>
-      {/* Add form or other content for booking */}
-    </main>
+    <div>
+      <h1>Book a Table</h1>
+      <BookingForm />
+    </div>
   );
-}
+};
 
 export default BookingPage;
