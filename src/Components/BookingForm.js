@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 
-const BookingForm = () => {
-  // Step 3: Define state variables
+const BookingForm = ({ availableTimes, updateTimes }) => {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [guests, setGuests] = useState(1);
   const [occasion, setOccasion] = useState('Birthday');
 
-  // State for available times
-  const availableTimes = [
-    '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
-  ];
+  // Handle date change and update available times
+  const handleDateChange = (e) => {
+    const selectedDate = e.target.value;
+    setDate(selectedDate);
+    updateTimes(selectedDate);
+  };
 
-  // Handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log('Reservation details:', { date, time, guests, occasion });
@@ -26,9 +26,9 @@ const BookingForm = () => {
         type="date"
         id="res-date"
         value={date}
-        onChange={(e) => setDate(e.target.value)}
+        onChange={handleDateChange}
       />
-
+      
       <label htmlFor="res-time">Choose time</label>
       <select
         id="res-time"
@@ -41,7 +41,7 @@ const BookingForm = () => {
           </option>
         ))}
       </select>
-
+      
       <label htmlFor="guests">Number of guests</label>
       <input
         type="number"
@@ -52,7 +52,7 @@ const BookingForm = () => {
         value={guests}
         onChange={(e) => setGuests(parseInt(e.target.value, 10))}
       />
-
+      
       <label htmlFor="occasion">Occasion</label>
       <select
         id="occasion"
@@ -62,7 +62,7 @@ const BookingForm = () => {
         <option value="Birthday">Birthday</option>
         <option value="Anniversary">Anniversary</option>
       </select>
-
+      
       <input type="submit" value="Make Your Reservation" />
     </form>
   );

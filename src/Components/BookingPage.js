@@ -1,11 +1,11 @@
 import React from 'react';
 import BookingForm from './BookingForm';
 
-const BookingPage = () => {
+const BookingPage = ({ availableTimes, updateTimes }) => {
   return (
     <div>
       <h1>Book a Table</h1>
-      <BookingForm />
+      <BookingForm availableTimes={availableTimes} updateTimes={updateTimes} />
     </div>
   );
 };
