@@ -1,0 +1,37 @@
+/* TestimonialsCard.css */
+.test-img {
+  border-radius: 50%;
+  width: 100px; /* Adjust size if needed */
+  height: 100px; /* Adjust size if needed */
+  object-fit: cover;
+}
+
+.center {
+  text-align: center;
+}
+
+.light {
+  background: #fff;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.col,
+.col-50,
+.col-25 {
+  flex-basis: 100%;
+}
+
+@media only screen and (min-width: 670px) {
+  .col-50 {
+    flex-basis: 45%;
+  }
+}
+
+@media only screen and (min-width: 940px) {
+  .col-50 {
+    flex-basis: 22%;
+  }
+}

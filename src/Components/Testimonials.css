@@ -1,0 +1,17 @@
+.testimonial {
+  background: #e2e2e2;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 670px) {
+  .pd {
+    padding: 10px 15px;
+  }
+}
