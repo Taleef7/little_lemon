@@ -74,15 +74,15 @@ const BookingForm = () => {
     setMsg({
       ...msg,
       line1: `Dear ${name.firstName} ${name.lastName}:`,
-      line2: `Your table for party of ${guests} is reserved for ${date} at ${time}.`,
-      line3: `We will see you soon for the ${occasion} event!`,
+      line2: `Your table of ${guests} is reserved for ${date} at ${time}.`,
+      line3: `We will see you soon for the ${occasion}!`,
     });
     setConfirm(true);
   };
 
   return (
     <section className="container my-3" style={{ maxWidth: "970px" }}>
-      <h2>Reserve a table</h2>
+      <h2>Reserve table</h2>
       <form onSubmit={handleSubmit} className="row justify-content-center">
         <div className="col-md-4 mb-3">
           <label htmlFor="firstName" className="form-label">
@@ -157,27 +157,30 @@ const BookingForm = () => {
 
         <div className="col-md-6 mb-3">
           <label htmlFor="guests" className="form-label">
-            Guests
+            No. of Guests
           </label>
           <input value={guests} type="number" name="form-control" id="guests" className="form-control" min={0} max={84} onChange={handleGuests} />
         </div>
         <div className="col-md-6 mb-3">
           <label htmlFor="date" className="form-label">
-            Occasion
+            Event
           </label>
           <select name="date" id="date" className="form-select" value={occasion} onChange={handleOccasion}>
             <option defaultValue hidden>
-              Select Occasion
+              Select Event
             </option>
-            <option value="birthday">Birthday</option>
+            <option value="birthday">Anniversary</option>
             <option value="engagement">Engagement</option>
-            <option value="anniversary">Anniversary</option>
+            <option value="anniversary">Birthday</option>
+            <option value="wedding">Wedding</option>
+            <option value="graduation">Graduation</option>
+            <option value="celebration">Celebration</option>
             <option value="other">Other</option>
           </select>
         </div>
 
-        <button type="submit" className="col-md-6 btn btn-primary my-4" style={{ maxWidth: "440px" }} disabled={!isGood()}>
-          Confirm Reservation
+        <button type="submit" className="col-md-6 btn btn-primary my-6" style={{ maxWidth: "500px" }} disabled={!isGood()}>
+          Confirmation
         </button>
       </form>
     </section>

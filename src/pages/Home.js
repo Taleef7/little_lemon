@@ -7,22 +7,22 @@ import Testimonials from "../Components/Testimonials";
 
 const data = [
   {
-    name: "Greek Salad",
-    price: "$8.99",
+    name: "Veggie Salad",
+    price: "$4.99",
     image: greek,
-    description: "Lettuce, peppers, olives and feta cheese, garnished with garlic and croutons.",
+    description: "Lettuce, peppers, onions, cucumbers, and tomatoes with a lemon vinaigrette.",
   },
   {
-    name: "Bruschetta",
+    name: "Caprese Salad",
     price: "$6.99",
     image: brus,
-    description: "Grilled bread smeared with garlic and seasoned with salt and olive oil.",
+    description: "Fresh mozzarella, tomatoes, and basil drizzled with balsamic glaze.",
   },
   {
-    name: "Lemon Special",
-    price: "$4.99",
+    name: "Little Lemon Special",
+    price: "$8.99",
     image: dessert,
-    description: "This comes straight from grandma's recipe book.",
+    description: "Homemade baklava with a scoop of vanilla ice cream.",
   },
 ];
 

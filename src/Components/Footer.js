@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      <footer className="pd lemon-primary-dark white row">
+      <footer className="pd lemon-primary-dark white">
         <div className="row">
-          <div className="col-full col-half col-3rd mb-5 foot-center">
+          <div className="col-full col-half col-3rd mb-6 foot-center bg-dark">
             <img className="footer-logo" src={FooterImg} alt="Little lemon footer pic" />
           </div>
-          <div className="col-full col-half col-3rd mb-5 foot-center">
+          <div className="col-full col-half col-3rd mb-6 foot-center bg-dark">
             <h4>SITEMAP</h4>
             <Link className="block" to="/">
               Home
@@ -24,24 +24,21 @@ const Footer = () => {
               Reserve
             </Link>
           </div>
-          <div className="col-full col-half col-3rd mb-5 foot-center">
+          <div className="col-full col-half col-3rd mb-6 foot-center bg-dark">
             <h4>CONTACT US</h4>
             <address>
-              123 Where Am I Street
+              Alif Bay Pay
               <br />
-              No Where, NW 00001
+              Everyehere, EW 12345
             </address>
-            <a className="footer-block" href="tel:+11234567890">
-              123&#41;&nbsp;456&#45;7890
+            <a className="footer-block" href="tel:+9290078601">
+              090078601
             </a>
             <br />
             <a className="footer-block" href="mailto: CSR@littlelemon.com">
-              CSR@littlelemon.com
+              contact@littlelemon.com
             </a>
           </div>
-        </div>
-        <div className="col-full foot-center">
-          <p>&copy; 2023 Coursera Meta Front-End Developer by Yoon.</p>
         </div>
       </footer>
     </>

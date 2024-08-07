@@ -2,8 +2,8 @@ const Error = () => {
   return (
     <>
       <section className="container">
-        <h1>404</h1>
-        <p>We can't find what you are looking for</p>
+        <h1 className="text-center my-3">🚫🚫🚫</h1>
+        <h2 className="text-center my-3">404 Not Found</h2>
       </section>
     </>
   );
